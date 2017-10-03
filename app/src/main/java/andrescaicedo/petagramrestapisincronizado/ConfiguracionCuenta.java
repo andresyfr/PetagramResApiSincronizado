@@ -71,14 +71,14 @@ public class ConfiguracionCuenta extends AppCompatActivity {
     }
 
     private void guardarUsuarioInstagram(){
-        String usuario = tiedtUsuario.getText().toString().trim();
+        String usuario = tiedtUsuario.getText().toString();
         if (validarCampoInstagram(usuario)){
             SharedPreferences perfilInstagram = getSharedPreferences("shared", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = perfilInstagram.edit();
             editor.putString("perfilInstagram", usuario);
             editor.commit();
 
-            Toast.makeText(this, "La cuenta '"+usuario+"' "+R.string.account_saved, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "La cuenta '"+usuario.toString()+"' se guardo satisfactoriamente, regrese al perfil para observar los cambios!", Toast.LENGTH_LONG).show();
             this.finish();
             Intent intent1 = new Intent(ConfiguracionCuenta.this, MainActivity.class);
             startActivity(intent1);
