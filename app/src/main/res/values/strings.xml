@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="nombre">Andres F. Ramirez C.</string>
+    <string name="telefono">55557777</string>
+    <string name="email">andresyfr@gmail.com</string>
+    <string name="pnombre">nombre</string>
+    <string name="ptelefono">telefono</string>
+    <string name="pemail">email</string>
+    <string name="plikes">0</string>
+    <string name="titulo_paisaje_manana">Paisaje Campo Mañana</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="transicion_foto">animacion_foto</string>
+    <string name="correo_send">Enviar correo</string>
+    <string name="correo_de">Correo de?</string>
+    <string name="correo_nombre">Nombre</string>
+    <string name="correo_descripcion">Descripción</string>
+    <string name="Correo">Envío de Email</string>
+    <string name="acercaDe">Acerca de</string>
+    <string name="configuracion_cuenta">Configuración de cuenta</string>
+    <string name="tvNombre">Desarrollado por:</string>
+    <string name="tvDesarrollador">ANDRES FELIPE RAMIREZ CAICEDO</string>
+    <string name="tvCuentaPrincipal">Usuario principal:</string>
+    <string name="tvCuentaPrin">PETYFR</string>
+    <string name="account_saved">se guardo satisfactoriamente, regrese al perfil para observar los cambios!</string>
+    <string name="like">Like</string>
+    <string name="valorLike">3</string>
+    <string name="presiona_peril">Presiona el fragment perfil</string>
+</resources>

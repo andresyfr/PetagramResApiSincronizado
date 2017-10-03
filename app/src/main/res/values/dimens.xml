@@ -1,0 +1,21 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="nombre_contacto">33dp</dimen>
+    <dimen name="telefono_contacto">20sp</dimen>
+    <dimen name="corner_radius_cardview">4dp</dimen>
+    <dimen name="altura_tarjeta1">230dp</dimen>
+    <dimen name="nombre_cardview">20sp</dimen>
+    <dimen name="top">20dp</dimen>
+    <dimen name="left">10dp</dimen>
+
+    <dimen name="elevacion_appbar">4dp</dimen>
+    <dimen name="sizeTextView">16dp</dimen>
+    <dimen name="sizeCuenta">20dp</dimen>
+    <dimen name="fotoFRagmentPerfilW">100dp</dimen>
+    <dimen name="fotoFRagmentPerfilH">100dp</dimen>
+    <dimen name="foto_card_esquinas">4dp</dimen>
+
+
+</resources>

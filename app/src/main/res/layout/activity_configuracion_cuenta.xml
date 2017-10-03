@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="andrescaicedo.petagramrestapisincronizado.ConfiguracionCuenta">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.design.widget.AppBarLayout
+            android:id="@+id/miAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <include
+                android:id="@+id/miActionBar"
+                layout="@layout/layout_action_bar"></include>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/miAppBar"
+            android:clipToPadding="false"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="casual"
+                    android:gravity="center"
+                    android:text="@string/configuracion_cuenta"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    style="@style/Widget.AppCompat.Button.Colored"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="182dp"
+                    android:fontFamily="casual"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/editTextConfiguarCuenta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:layout_weight="1"
+                        android:textIsSelectable="true"
+                        android:hint="Escribe tu usuario"
+                        android:inputType="text|textPersonName"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/buttonConfigurarCuenta"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:elevation="4dp"
+                    android:text="Guardar Cuenta" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</ScrollView>
