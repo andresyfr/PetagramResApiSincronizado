@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "821526168893",
+    "firebase_url": "https://petagramrestapi.firebaseio.com",
+    "project_id": "petagramrestapi",
+    "storage_bucket": "petagramrestapi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821526168893:android:a5a89fadb434d417",
+        "android_client_info": {
+          "package_name": "andrescaicedo.petagramrestapisincronizado"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821526168893-10mdo638lcdcadpoh6eo4rl737s0s892.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "andrescaicedo.petagramrestapisincronizado",
+            "certificate_hash": "23141cdf1a982ebe6bbbb8da3697d82723e0fec7"
+          }
+        },
+        {
+          "client_id": "821526168893-5pc0f088a0sqmdskqldik0ag16ek0dhn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQIygid9xKgw1TLjhCit0Zk2a29UqUE30"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821526168893-5pc0f088a0sqmdskqldik0ag16ek0dhn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

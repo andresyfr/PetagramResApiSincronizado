@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "petagramrestapi",
+  "private_key_id": "b7fe044cd3cd9f23eca32f96eebd40a0c8b7afa8",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDE8/2BFqaMrFIb\n3Zwyo65ygyOfEfIi4I1gziMavoQPOPlAxSXNQuSqaiYnxd7j1c93fVrmPRrNqM3+\nh7asMzFsWbjf3m1hLWfCh5eLuKkIwEEToV65qQSaKuv9TkZRg+JkAHTTFmngSHxZ\nut/i3smsT7tTaWdmsbYOa07T+xj2xfZ5rFh5QbEftaQ++j7kS/HZaRE6nyvmQnYD\nA8Ngph98sm0CjUGL0L6lVR5Mmn8cwwyOCwgSiGwc/mfbYjWwcU21yGB0uobhxfVt\ne9urxuiAf9IFGnuhxwQdAnDnYut5Tstl4FWAsKsCzzEOfNPdJG5JIJYRFbKQJXVn\ny3idrnS/AgMBAAECggEAKn/0Di0TF3v/4994Wz0S4ccGosa+l2QZXfBdhuHhoV9L\n+fwQ4jAzI8rwHNkH9eYndMNqIBDDfemVOf2TH6mUWqspx7U5qSShJUsZGp9oamkC\nIfhKdonQYmwsrGZ9qg1phubKTtqhUjKSEtLOiShGIJa7943hMDnc7VOemQOwKV/B\naUgws3/+KvUfj7GOaO0Bg7sgVYUqscohQ6P9+kCnkm8MpHzCs+MN815IHYInkIiu\nDnKcW0DXxVRBNkp7xdCGtbwqCQ8YJE4rS/VjP/ooHP6KjMel3m2FMFfv5O8VX5z0\nQBvOnyZlqPnh8F5vu8pfUVr8VEltYVvc8Zjgk3wWEQKBgQDvlwwQVByuJaDgZk8f\nIvuXwtFJkDzoiOCv7T1NZo35TIoXqnO0vQDyjkF4l2YcrVuy6XJ9WfcPQL9YgF/l\nbEFCvXsYTpHEpu9R2GmhNyN60TJEBsDF+vkTIupH9D66HuFPX72O7rFyR94mxz2G\nITj2g1LsoYFRy1guRAcxDxZlWwKBgQDScVmvFEwLuJm71Jfl0dVk+O4W8OsvAC1n\nRTdaPXV8n8OOvHf8O5LVD6aSxt4N4sg40k9JRCZJ0FWthZc4ZwK97DGgP3tRnAFC\nMM8xRXBXuWRfHxNRHHFpCFak5bEhVp7MDWAqL9128L/ScmVaOGyWll7PbWAkL1QP\nijER7ph3bQKBgEr2To75UjPmkAxF1nGeh2t3R/YlS/lRgkNpDeoesUMUAIzhBuzA\nygAaJD/v1sIYN32l7u1rbZJ3JqcxG0/z7ANOt6nmQ1NtC6nm9T28u7wcogaIul33\nZWDoZrb2o32mVcZ45R1Ib3qbI9WsNwK1eFYgxpxE9+o4njFzlXBzEQXLAoGBAL59\nQjw7+DYn7GjcoH60uSBEQGhdvdV2qKKxQdCaj0225HLA4S9d0aSxHQwBnaEeJjVh\nEcn1OV9ZiSSgJ2kzvYSjV6yBqiQOPglnWzVzcKTHuTZtT7P9Nh9oH9312Kef2/BD\nL0gguaxfcpORX3MSXiDVjo7ep8c5XDMQ2SgtPK/lAoGAY9oCaR0fkAjJ5wrysKMW\nF52GikWUfCOBP93s7tBYLTpy34JiZr+2b+ADiQP6KgN0l4Z39sqR0m7H+buwuB1n\n5L+7u59Mf5bdmBflDrT8aVEMFRIcLdK0TVKSbgiiUHRFbUcOHuSoNgf+pxR7ORAO\nzXk+SinH3KEe2hhCjdfxq6w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "petagram-rest-api-server@petagramrestapi.iam.gserviceaccount.com",
+  "client_id": "104006512604165799954",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/petagram-rest-api-server%40petagramrestapi.iam.gserviceaccount.com"
+}

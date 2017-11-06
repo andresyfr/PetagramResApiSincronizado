@@ -1,6 +1,8 @@
 package andrescaicedo.petagramrestapisincronizado.presentador;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -60,6 +62,14 @@ public class PerfilPetPresenter implements IPerfilPetPresenter {
             EndpointsApi endpointsApi = restApiAdapter.establecerConexionInicial(gson);
             mascotas = new ArrayList<>();
             Call<PerfilResponse> perfilResponseCall = endpointsApi.getRecentMediaUserID(usuario.getId());
+
+            SharedPreferences perfilInstagram = this.context.getSharedPreferences("shared", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = perfilInstagram.edit();
+            editor.putString("idInstagram", usuario.getId());
+            editor.commit();
+
+            Toast.makeText(context, "Id Usuario: " + usuario.getId(), Toast.LENGTH_LONG).show();
+
             perfilResponseCall.enqueue(new Callback<PerfilResponse>() {
                 @Override
                 public void onResponse(Call<PerfilResponse> call, Response<PerfilResponse> response) {
@@ -98,6 +108,7 @@ public class PerfilPetPresenter implements IPerfilPetPresenter {
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
                 SearchResponse searchResponse = response.body();
                 usuario = searchResponse.getCuenta();
+
                 if(!usuario.getUsuario().equals("NotFound")){
                     getInstagramProfile();
                 } else{
@@ -108,7 +119,6 @@ public class PerfilPetPresenter implements IPerfilPetPresenter {
 
             @Override
             public void onFailure(Call<SearchResponse> call, Throwable t) {
-
                 Toast.makeText(context, "Perfil: " + t.toString(), Toast.LENGTH_SHORT).show();
             }
         });

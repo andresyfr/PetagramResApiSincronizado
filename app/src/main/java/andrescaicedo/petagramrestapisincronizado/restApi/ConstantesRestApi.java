@@ -2,6 +2,10 @@ package andrescaicedo.petagramrestapisincronizado.restApi;
 
 public final class ConstantesRestApi {
 
+    /**
+     * Api, URLS de instagram
+     */
+    //
     public static final String VERSION = "/v1/";
     public static final String ROOT_URL = "https://api.instagram.com" + VERSION;
     public static final String ACCESS_TOKEN = "5707055408.a62d289.101c474e40c3446d9fd1cee136e9b4a0";
@@ -23,7 +27,11 @@ public final class ConstantesRestApi {
     public static final String KEY_USER_FOLLOWS = "users/self/follows";
     public static final String URL_USER_FOLLOWS = KEY_USER_FOLLOWS;
 
-
-
+    /**
+     * Api, URLS de firebase
+     */
+    //
+    public static final String ROOT_URL_FIREBASE = "https://quiet-shore-79332.herokuapp.com/";
+    public static final String KEY_POST_ID_FIREBASE = "usuario_instagram/";
 
 }

@@ -57,4 +57,15 @@ public class RestApiAdapter {
         return gsonBuilder.create();
     }
 
+    //====================rest api firebase========================================
+
+    public EndpointsApi establecerConexionRestAPIFirebase(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(ConstantesRestApi.ROOT_URL_FIREBASE)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+                ;
+        return retrofit.create(EndpointsApi.class);
+    }
+
 }
