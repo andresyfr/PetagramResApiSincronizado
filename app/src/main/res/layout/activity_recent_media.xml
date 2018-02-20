@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="andrescaicedo.petagramrestapisincronizado.presentador.RecentMediaActivity">
+
+    <include android:id="@+id/miActionBar"
+        layout="@layout/layout_action_bar"> </include>
+    <TextView
+        android:id="@+id/tvFotosDe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/fotos_de"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        style="@style/Widget.AppCompat.Button.Colored"
+        />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvRecentMediaFollow"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"/>
+
+</LinearLayout>

@@ -2,10 +2,12 @@ package andrescaicedo.petagramrestapisincronizado.presentador;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+
+import java.util.ArrayList;
+
 import andrescaicedo.petagramrestapisincronizado.fragments.IPerfilPet;
 import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
 import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
@@ -14,9 +16,6 @@ import andrescaicedo.petagramrestapisincronizado.restApi.EndpointsApi;
 import andrescaicedo.petagramrestapisincronizado.restApi.adapter.RestApiAdapter;
 import andrescaicedo.petagramrestapisincronizado.restApi.model.PerfilResponse;
 import andrescaicedo.petagramrestapisincronizado.restApi.model.SearchResponse;
-
-import java.util.ArrayList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -80,6 +79,8 @@ public class PerfilPetPresenter implements IPerfilPetPresenter {
 
                 @Override
                 public void onFailure(Call<PerfilResponse> call, Throwable t) {
+                    mascotas = new ArrayList<>();
+                    mostrarFotosPerfilRV();
                     Toast.makeText(context, "Perfil: " + t.toString(), Toast.LENGTH_SHORT).show();
                 }
             });
@@ -103,11 +104,18 @@ public class PerfilPetPresenter implements IPerfilPetPresenter {
 
         //4.- Creando el Call
         final Call<SearchResponse> searchResponseCall = endpointsApi.getUsuarioBusqueda(cuentaUsuario, ConstantesRestApi.ACCESS_TOKEN);
+        Toast.makeText(context, "Perfil: " + ConstantesRestApi.ACCESS_TOKEN, Toast.LENGTH_LONG).show();
+        System.out.println("mira a accestoken "+ConstantesRestApi.ACCESS_TOKEN);
         searchResponseCall.enqueue(new Callback<SearchResponse>() {
             @Override
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
                 SearchResponse searchResponse = response.body();
                 usuario = searchResponse.getCuenta();
+
+                SharedPreferences idInstagram = context.getSharedPreferences("shared", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editorId = idInstagram.edit();
+                editorId.putString("idInstagram", usuario.getId());
+                editorId.commit();
 
                 if(!usuario.getUsuario().equals("NotFound")){
                     getInstagramProfile();

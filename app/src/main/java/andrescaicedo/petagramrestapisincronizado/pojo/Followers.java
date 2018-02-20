@@ -1,15 +1,20 @@
 package andrescaicedo.petagramrestapisincronizado.pojo;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 /**
  * Created by ANDRES on 02/10/2017.
  */
 
-public class Followers {
+public class Followers implements Serializable {
 
     private String id;
     private String nombre;
     private String usuario;
     private String urlFotoPerfil;
+
+    private ArrayList<Mascota> mediaRecent;
 
     public Followers(String id, String nombre, String usuario, String urlFotoPerfil) {
         this.id = id;
@@ -51,5 +56,13 @@ public class Followers {
 
     public void setUrlFotoPerfil(String urlFotoPerfil) {
         this.urlFotoPerfil = urlFotoPerfil;
+    }
+
+    public ArrayList<Mascota> getMediaRecent() {
+        return mediaRecent;
+    }
+
+    public void setMediaRecent(ArrayList<Mascota> mediaRecent) {
+        this.mediaRecent = mediaRecent;
     }
 }

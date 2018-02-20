@@ -2,6 +2,7 @@ package andrescaicedo.petagramrestapisincronizado.restApi.adapter;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import andrescaicedo.petagramrestapisincronizado.restApi.ConstantesRestApi;
 import andrescaicedo.petagramrestapisincronizado.restApi.EndpointsApi;
 import andrescaicedo.petagramrestapisincronizado.restApi.deserializador.FollowersDeserializador;
@@ -12,7 +13,6 @@ import andrescaicedo.petagramrestapisincronizado.restApi.model.FollowersResponse
 import andrescaicedo.petagramrestapisincronizado.restApi.model.PerfilResponse;
 import andrescaicedo.petagramrestapisincronizado.restApi.model.SearchResponse;
 import andrescaicedo.petagramrestapisincronizado.restApi.model.TimelineResponse;
-
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 

@@ -8,6 +8,7 @@ public final class JsonKeys {
     public static final String USER_FULL_NAME               = "full_name";
     public static final String USER_NAME                    = "username";
     //Datos de Media
+    public static final String ID                           = "id";
     public static final String MEDIA_IMAGES                 = "images";
     public static final String MEDIA_STANDARD_RESOLUTION    = "standard_resolution";
     public static final String MEDIA_URL                    = "url";

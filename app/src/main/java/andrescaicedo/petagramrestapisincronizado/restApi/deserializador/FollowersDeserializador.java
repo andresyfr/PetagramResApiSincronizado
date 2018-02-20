@@ -7,12 +7,13 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
-import andrescaicedo.petagramrestapisincronizado.restApi.JsonKeys;
-import andrescaicedo.petagramrestapisincronizado.restApi.model.FollowersResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
+import andrescaicedo.petagramrestapisincronizado.restApi.JsonKeys;
+import andrescaicedo.petagramrestapisincronizado.restApi.model.FollowersResponse;
 
 public class FollowersDeserializador implements JsonDeserializer{
     @Override
@@ -38,12 +39,15 @@ public class FollowersDeserializador implements JsonDeserializer{
             String fullnameFollower = arregloJsonDataObject.get(JsonKeys.FOLLOWERS_USER_FULL_NAME).getAsString();
             String pictureFollower  = arregloJsonDataObject.get(JsonKeys.FOLLOWERS_USER_PROFILE_PIC).getAsString();
 
+
             //Llenando Datos
             Followers followerActual = new Followers();
             followerActual.setId(idFollower);
             followerActual.setUsuario(usernameFollower);
             followerActual.setNombre(fullnameFollower);
             followerActual.setUrlFotoPerfil(pictureFollower);
+
+            System.out.println("Followers id: "+idFollower+" nombre: "+usernameFollower+" full name "+fullnameFollower+" picture "+pictureFollower);
 
             followers.add(followerActual);
         }

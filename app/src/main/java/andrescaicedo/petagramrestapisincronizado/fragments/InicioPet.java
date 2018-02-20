@@ -8,20 +8,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 import andrescaicedo.petagramrestapisincronizado.R;
+import andrescaicedo.petagramrestapisincronizado.adaptadores.FotosFollowersAdaptador;
 import andrescaicedo.petagramrestapisincronizado.adaptadores.MascotaAdaptador;
+import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
 import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
 import andrescaicedo.petagramrestapisincronizado.presentador.IInicioPetPresenter;
 import andrescaicedo.petagramrestapisincronizado.presentador.InicioPetPresenter;
 
-import java.util.ArrayList;
-
 public class InicioPet extends Fragment implements IInicioPet {
 
     private RecyclerView.LayoutManager lManager;
-    ArrayList<Mascota> mascota;
-    private RecyclerView listaMascotas;
+    ArrayList<Followers> followers;
+    private RecyclerView listaFollowers;
     private IInicioPetPresenter followersPresenter;
+
     public InicioPet() {
         // Required empty public constructor
     }
@@ -32,8 +35,8 @@ public class InicioPet extends Fragment implements IInicioPet {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_recyclerview, container, false);
 
-        listaMascotas = (RecyclerView) v.findViewById(R.id.rvContactos);
-        listaMascotas.setHasFixedSize(true);
+        listaFollowers = (RecyclerView) v.findViewById(R.id.rvFollowers);
+        listaFollowers.setHasFixedSize(true);
 
         followersPresenter = new InicioPetPresenter(this, getContext());
 
@@ -48,11 +51,16 @@ public class InicioPet extends Fragment implements IInicioPet {
         return v;
     }
 
+//    public void inicializarListaMascotas(){
+//        followers = new ArrayList<>();
+//        followers.add(new Followers("1","as","as","as"));
+//    }
+
     /*
     //11.- Seteando el Adaptador
     public void inicializarAdaptador(){
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, getActivity());
-        listaMascotas.setAdapter(adaptador);
+        FotosFollowersAdaptador adaptador = new FotosFollowersAdaptador(followers, getActivity());
+        listaFollowers.setAdapter(adaptador);
     }
     */
 
@@ -76,18 +84,18 @@ public class InicioPet extends Fragment implements IInicioPet {
     public void generarGridLayout() {
         LinearLayoutManager llm = new LinearLayoutManager(getActivity());
         llm.setOrientation(LinearLayoutManager.VERTICAL);
-        listaMascotas.setLayoutManager(llm);
+        listaFollowers.setLayoutManager(llm);
     }
 
     @Override
-    public MascotaAdaptador crearAdaptadorTimeline(ArrayList<Mascota> mascota) {
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascota, getActivity());
+    public FotosFollowersAdaptador crearAdaptadorTimeline(ArrayList<Followers> followers) {
+        FotosFollowersAdaptador adaptador = new FotosFollowersAdaptador(followers, getActivity());
         return adaptador;
     }
 
     @Override
-    public void iniciarAdaptadorRVTimeline(MascotaAdaptador adaptador) {
-        listaMascotas.setHasFixedSize(true);
-        listaMascotas.setAdapter(adaptador);
+    public void iniciarAdaptadorRVTimeline(FotosFollowersAdaptador adaptador) {
+        listaFollowers.setHasFixedSize(true);
+        listaFollowers.setAdapter(adaptador);
     }
 }

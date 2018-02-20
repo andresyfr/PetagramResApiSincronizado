@@ -12,41 +12,42 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.mikhaellopez.circularimageview.CircularImageView;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 import andrescaicedo.petagramrestapisincronizado.R;
+import andrescaicedo.petagramrestapisincronizado.adaptadores.FotosFollowersAdaptador;
 import andrescaicedo.petagramrestapisincronizado.adaptadores.FotosPerfilAdaptador;
 import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
-import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
+import andrescaicedo.petagramrestapisincronizado.presentador.FollowersPetPresenter;
+import andrescaicedo.petagramrestapisincronizado.presentador.IFollowersPetPresenter;
 import andrescaicedo.petagramrestapisincronizado.presentador.IPerfilPetPresenter;
 import andrescaicedo.petagramrestapisincronizado.presentador.PerfilPetPresenter;
 
 
-public class PerfilPet extends Fragment implements IPerfilPet {
+public class FollowersPet extends Fragment implements IFollowersPet {
 
-    private RecyclerView listaMascotas;
+    private RecyclerView listaFollowers;
     private RecyclerView.LayoutManager lManager;
     private CircularImageView circularImageView;
     private TextView tvNombrePerfil;
-    private IPerfilPetPresenter perfilPresentador;
+    private IFollowersPetPresenter followersPetPresenter;
     private RecyclerView.Adapter adapter;
 
-    public PerfilPet() {
+    public FollowersPet() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v = inflater.inflate(R.layout.fragment_perfil, container, false);
+        View v = inflater.inflate(R.layout.fragment_followers, container, false);
 
-        circularImageView = (CircularImageView)v.findViewById(R.id.imageViewPerfil);
-        tvNombrePerfil = (TextView)v.findViewById(R.id.tvNombrePerfil);
-        listaMascotas = (RecyclerView) v.findViewById(R.id.rvPerfilCuenta);
-        listaMascotas.setHasFixedSize(true);
-        perfilPresentador = new PerfilPetPresenter(this, getContext(), obtenerProfileInstagram());
+        circularImageView = (CircularImageView)v.findViewById(R.id.imageViewFollowers);
+        tvNombrePerfil = (TextView)v.findViewById(R.id.tvNombreFollowers);
+        listaFollowers = (RecyclerView) v.findViewById(R.id.rvFollowersCuenta);
+        listaFollowers.setHasFixedSize(true);
+        followersPetPresenter = new FollowersPetPresenter(this, getContext(), obtenerProfileInstagram());
 
         return v;
     }
@@ -59,28 +60,19 @@ public class PerfilPet extends Fragment implements IPerfilPet {
     @Override
     public void generarGridLayout() {
         lManager = new GridLayoutManager(getActivity(), 3);
-        listaMascotas.setLayoutManager(lManager);
+        listaFollowers.setLayoutManager(lManager);
     }
 
     @Override
-    public FotosPerfilAdaptador crearAdaptador(ArrayList<Mascota> mascotas) {
-        FotosPerfilAdaptador adaptador = new FotosPerfilAdaptador(mascotas, getActivity());
+    public FotosFollowersAdaptador crearAdaptador(ArrayList<Followers> followers) {
+        FotosFollowersAdaptador adaptador = new FotosFollowersAdaptador(followers, getActivity());
         return adaptador;
     }
 
     @Override
-    public void inicializarAdaptadorRV(FotosPerfilAdaptador adapter) {
-        listaMascotas.setHasFixedSize(true);
-        listaMascotas.setAdapter(adapter);
+    public void inicializarAdaptadorRV(FotosFollowersAdaptador adapter) {
+        listaFollowers.setHasFixedSize(true);
+        listaFollowers.setAdapter(adapter);
     }
 
-    @Override
-    public void crearImagenPerfil(Followers profileUser) {
-        Picasso.with(getActivity())
-                .load(profileUser.getUrlFotoPerfil())
-                .placeholder(R.drawable.huella)
-                .into(circularImageView);
-
-        tvNombrePerfil.setText(profileUser.getNombre());
-    }
 }

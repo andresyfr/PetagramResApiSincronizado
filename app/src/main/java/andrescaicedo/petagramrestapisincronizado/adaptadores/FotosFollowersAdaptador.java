@@ -1,6 +1,8 @@
 package andrescaicedo.petagramrestapisincronizado.adaptadores;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +17,13 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 import andrescaicedo.petagramrestapisincronizado.R;
+import andrescaicedo.petagramrestapisincronizado.presentador.RecentMediaActivity;
 import andrescaicedo.petagramrestapisincronizado.db.ConstructorMascotas;
-import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
+import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
 import andrescaicedo.petagramrestapisincronizado.restApi.ConstantesRestApi;
 import andrescaicedo.petagramrestapisincronizado.restApi.EndpointsApi;
 import andrescaicedo.petagramrestapisincronizado.restApi.adapter.RestApiAdapter;
 import andrescaicedo.petagramrestapisincronizado.restApi.model.MascotaResponse;
-import andrescaicedo.petagramrestapisincronizado.restApi.model.PerfilResponse;
-import andrescaicedo.petagramrestapisincronizado.restApi.model.SearchResponse;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,89 +32,95 @@ import retrofit2.Response;
  * Created by ANDRES on 02/10/2017.
  */
 
-public class FotosPerfilAdaptador extends RecyclerView.Adapter<FotosPerfilAdaptador.FotosPerfilViewHolder>{
+public class FotosFollowersAdaptador extends RecyclerView.Adapter<FotosFollowersAdaptador.FotosFollowersViewHolder>{
 
     //4.- Declarando la coleccion de los contactos
-    ArrayList<Mascota> mascotas;
+    ArrayList<Followers> followers;
     Activity activity;
+    private static Context context=null;
 
     //1.-
-    public static class FotosPerfilViewHolder extends RecyclerView.ViewHolder{
+    public static class FotosFollowersViewHolder extends RecyclerView.ViewHolder{
         //2.- Se declaran todos los views declarados dentro del cardview aqui es donde se adaptan
-        private ImageView imgFotoPerfil;
-        private TextView tvLikesCVPerfil;
-        private ImageView imgBoneCVPerfil;
+        private ImageView imgFotoFollowers;
+        private TextView tvNombreCVFollowers;
 
-        public FotosPerfilViewHolder(View itemView) {
+        public FotosFollowersViewHolder(View itemView) {
             super(itemView);
+            context = itemView.getContext();
             // 3.- Se asocia el ImageView y se hace el casting
-            imgFotoPerfil         = (ImageView)   itemView.findViewById(R.id.imgFotoPerfil);
-            tvLikesCVPerfil       = (TextView)    itemView.findViewById(R.id.tvNombreCV);
-            imgBoneCVPerfil       = (ImageView)   itemView.findViewById(R.id.imgBone);
+            imgFotoFollowers         = (ImageView)   itemView.findViewById(R.id.imgFotoFollowers);
+            tvNombreCVFollowers       = (TextView)    itemView.findViewById(R.id.textViewNombreFollowers);
         }
 
     }
 
     //10.- Generando el Metodo Constructor
-    public FotosPerfilAdaptador(ArrayList<Mascota> mascotas, Activity activity) {
-        this.mascotas = mascotas;
+    public FotosFollowersAdaptador(ArrayList<Followers> followers, Activity activity) {
+        this.followers = followers;
         this.activity = activity;
     }
 
     @Override
     //6.- Esto infla o le da vida a nuestro layout cardview, Infla el layout y lo pasa al viewholder
-    public FotosPerfilViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_perfil, parent, false);
-        return new FotosPerfilViewHolder(v);
+    public FotosFollowersViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_followers, parent, false);
+        return new FotosFollowersViewHolder(v);
     }
 
     @Override //7.- Aqui vamos a pasar la lista de Mascotas
-    public void onBindViewHolder(final FotosPerfilViewHolder fotosPerfilViewHolder, final int position) {
-        fotosPerfilViewHolder.tvLikesCVPerfil.setText(String.valueOf(mascotas.get(position).getLikes()));
+    public void onBindViewHolder(final FotosFollowersViewHolder fotosPerfilViewHolder, final int position) {
+        fotosPerfilViewHolder.tvNombreCVFollowers.setText(String.valueOf(followers.get(position).getNombre()));
         //fotosPerfilViewHolder.imgFotoPerfil.setImageResource(mascota.getFoto());
         Picasso.with(activity)
-                .load(mascotas.get(position).getUrlFoto())
+                .load(followers.get(position).getUrlFotoPerfil())
                 .placeholder(R.drawable.huella)
-                .into(fotosPerfilViewHolder.imgFotoPerfil);
+                .into(fotosPerfilViewHolder.imgFotoFollowers);
 
         ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
 
-        final Mascota mascota = mascotas.get(position);
+        final Followers follow = followers.get(position);
         //8.- Haciendo Click en la Imagen
-        fotosPerfilViewHolder.imgFotoPerfil.setOnClickListener(new View.OnClickListener() {
+        fotosPerfilViewHolder.imgFotoFollowers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(activity, mascota.toString(), Toast.LENGTH_SHORT).show();
+//                RecentMediaActivity recentMediaActivity = new RecentMediaActivity();
+                Intent detail = new Intent(context.getApplicationContext(), RecentMediaActivity.class);
+                detail.putExtra("parametro", follow);
+                context.startActivity(detail);
+
+//                Intent recentMedia = new Intent(FotosFollowersAdaptador.FotosFollowersViewHolder.this, RecentMediaActivity.class);
+//                startActivity(intent4);
+                Toast.makeText(activity, follow.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 
         //9.- Haciendo Click en el boton Like
-        fotosPerfilViewHolder.imgBoneCVPerfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int verificarMascota;
-                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
-
-                verificarMascota = 0;//constructorMascotas.verificarMascota(mascota);
-
-                if (verificarMascota == 0){
-                    //constructorMascotas.insertarMascota(mascota);
-                    //System.out.println("mas==================="+mascota.getUrlFoto()+"-"+mascota.getId()+"-"+mascota.getLikes());
-                    postLikeMediaInstagram(mascota.getId());
-                    fotosPerfilViewHolder.tvLikesCVPerfil.setText(""+(Integer.parseInt(fotosPerfilViewHolder.tvLikesCVPerfil.getText().toString())+1) );
-                    //Toast.makeText(activity, "Like: " + mascota.getId(), Toast.LENGTH_SHORT).show();
-                } else {
-                    constructorMascotas.insertarLikeMascota(mascota);
-                    fotosPerfilViewHolder.tvLikesCVPerfil.setText(Integer.toString(constructorMascotas.obtenerLikesMascota(mascota)));
-                    //Toast.makeText(activity, "Like: " + mascota.getId(), Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        fotosPerfilViewHolder.imgFotoFollowers.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                int verificarMascota;
+//                ConstructorMascotas constructorMascotas = new ConstructorMascotas(activity);
+//
+//                verificarMascota = 0;//constructorMascotas.verificarMascota(mascota);
+//
+//                if (verificarMascota == 0){
+//                    //constructorMascotas.insertarMascota(mascota);
+//                    //System.out.println("mas==================="+mascota.getUrlFoto()+"-"+mascota.getId()+"-"+mascota.getLikes());
+//                    postLikeMediaInstagram(mascota.getId());
+//                    Toast.makeText(activity, "Like: " + mascota.getId(), Toast.LENGTH_SHORT).show();
+//                } else {
+//                    //constructorMascotas.insertarLikeMascota(mascota);
+//                    //fotosPerfilViewHolder.tvLikesCVPerfil.setText(Integer.toString(constructorMascotas.obtenerLikesMascota(mascota)));
+//                    Toast.makeText(activity, "No se dío Like: " + mascota.getId(), Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
 
     @Override //5.- EL numero total de mascotas
     public int getItemCount() {
-        return mascotas.size();
+        return followers.size();
     }
 
     public void postLikeMediaInstagram(String id_media) {
@@ -136,7 +143,7 @@ public class FotosPerfilAdaptador extends RecyclerView.Adapter<FotosPerfilAdapta
                 MascotaResponse mascotaResponse = response.body();
 
                 try{
-                    //Toast.makeText(activity, "Se agregó un like a la foto seleccionada,\n configure la cuenta de nuevo para ver los cambios", Toast.LENGTH_LONG).show();
+                    Toast.makeText(activity, "Se agregó un like a la foto seleccionada,\n configure la cuenta de nuevo para ver los cambios", Toast.LENGTH_LONG).show();
                 }catch (Exception ex){
                     System.out.println("ErrorFotosLike "+mascotaResponse+"\n error "+ex);
                 }

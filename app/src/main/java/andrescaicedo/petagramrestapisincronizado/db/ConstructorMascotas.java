@@ -3,9 +3,9 @@ package andrescaicedo.petagramrestapisincronizado.db;
 import android.content.ContentValues;
 import android.content.Context;
 
-import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-
 import java.util.ArrayList;
+
+import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
 
 public class ConstructorMascotas {
 

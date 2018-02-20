@@ -1,8 +1,8 @@
 package andrescaicedo.petagramrestapisincronizado.restApi.model;
 
-import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
-
 import java.util.ArrayList;
+
+import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
 
 public class FollowersResponse {
    ArrayList<Followers> cuenta;

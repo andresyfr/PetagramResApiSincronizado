@@ -25,7 +25,7 @@ import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
 public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.MascotaViewHolder>{
 
     //4.- Declarando la coleccion de los contactos
-    ArrayList<Mascota> mascotas;
+    private ArrayList<Mascota> mascotas;
     Activity activity;
 
     //10.- Generando el metodo Constructor
@@ -86,8 +86,6 @@ public class MascotaAdaptador extends RecyclerView.Adapter<MascotaAdaptador.Masc
                     mascotaViewHolder.tvLikesCV.setText(Integer.toString(constructorMascotas.obtenerLikesMascota(mascota)));
                     Toast.makeText(activity, "Like: " + mascota.getNombre(), Toast.LENGTH_SHORT).show();
                 }
-
-
             }
         });
     }

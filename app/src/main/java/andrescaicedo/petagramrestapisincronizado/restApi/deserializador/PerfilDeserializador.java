@@ -7,12 +7,13 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-import andrescaicedo.petagramrestapisincronizado.restApi.JsonKeys;
-import andrescaicedo.petagramrestapisincronizado.restApi.model.PerfilResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
+import andrescaicedo.petagramrestapisincronizado.restApi.JsonKeys;
+import andrescaicedo.petagramrestapisincronizado.restApi.model.PerfilResponse;
 
 public class PerfilDeserializador implements JsonDeserializer <PerfilResponse>{
 
@@ -38,9 +39,21 @@ public class PerfilDeserializador implements JsonDeserializer <PerfilResponse>{
             JsonObject mascotaResponseDataObject = mascotaResponseData.get(i).getAsJsonObject();
 
             //Obteniendo los Datos de la Foto
+
             JsonObject imageJson        = mascotaResponseDataObject.getAsJsonObject(JsonKeys.MEDIA_IMAGES);
             JsonObject imagenStdJson    = imageJson.getAsJsonObject(JsonKeys.MEDIA_STANDARD_RESOLUTION);
+
+            String id="";
+//            try {
+                id                   = mascotaResponseDataObject.get(JsonKeys.ID).getAsString();//imageJson.get(JsonKeys.ID).getAsString();//"A";//imagenStdJson.get(JsonKeys.ID).getAsString();\
+//                System.out.println("Id mascota en perfil desealizador "+id);
+//            }catch (Exception ex){
+//                System.out.println("Error en perfil desealizador "+ex);
+//            }
+
             String urlFoto              = imagenStdJson.get(JsonKeys.MEDIA_URL).getAsString();
+
+            //System.out.println("PerfilDeserializador"+mascotaResponseData);
 
             //Obteniendo los Likes
             JsonObject likesJson    = mascotaResponseDataObject.getAsJsonObject(JsonKeys.MEDIA_LIKES);
@@ -48,10 +61,12 @@ public class PerfilDeserializador implements JsonDeserializer <PerfilResponse>{
 
             //Llenando Datos
             Mascota fotoPerfilActual = new Mascota();
+            fotoPerfilActual.setId(id);
             fotoPerfilActual.setUrlFoto(urlFoto);
             fotoPerfilActual.setLikes(likes);
-
             mascotas.add(fotoPerfilActual);
+
+            System.out.println("ID mascota en Perfil deserializa "+" "+fotoPerfilActual.getId());
         }
 
         return mascotas;

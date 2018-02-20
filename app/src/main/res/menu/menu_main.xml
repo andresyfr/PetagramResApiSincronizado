@@ -33,4 +33,10 @@
         android:icon="@android:drawable/ic_menu_manage"
         android:orderInCategory="100"
         app:showAsAction="never"/>
+
+    <!--<item android:title="Enviar Like"-->
+        <!--android:id="@+id/actionEnviarLike"-->
+        <!--android:icon="@android:drawable/ic_menu_manage"-->
+        <!--android:orderInCategory="100"-->
+        <!--app:showAsAction="never"/>-->
 </menu>

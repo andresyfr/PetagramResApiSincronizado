@@ -1,9 +1,9 @@
 package andrescaicedo.petagramrestapisincronizado.fragments;
 
+import java.util.ArrayList;
+
 import andrescaicedo.petagramrestapisincronizado.adaptadores.MascotaAdaptador;
 import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-
-import java.util.ArrayList;
 
 public interface IFavoritos {
 

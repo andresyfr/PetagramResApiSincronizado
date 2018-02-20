@@ -2,11 +2,11 @@ package andrescaicedo.petagramrestapisincronizado.presentador;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+
 import andrescaicedo.petagramrestapisincronizado.db.ConstructorMascotas;
 import andrescaicedo.petagramrestapisincronizado.fragments.IFavoritos;
 import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-
-import java.util.ArrayList;
 
 public class FavoritosPresenter implements IFavoritosPresenter {
 

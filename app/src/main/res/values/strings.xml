@@ -26,5 +26,7 @@
     <string name="account_saved">se guardo satisfactoriamente, regrese al perfil para observar los cambios!</string>
     <string name="like">Like</string>
     <string name="valorLike">3</string>
-    <string name="presiona_peril">Presiona el fragment perfil</string>
+    <string name="presiona_peril">Usuarios que sigues</string>
+    <string name="nameMascota">Fotos de Petyfr  Petagram</string>
+    <string name="fotos_de">Fotos de</string>
 </resources>

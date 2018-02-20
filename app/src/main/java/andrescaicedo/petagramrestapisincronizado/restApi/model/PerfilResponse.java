@@ -1,8 +1,8 @@
 package andrescaicedo.petagramrestapisincronizado.restApi.model;
 
-import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-
 import java.util.ArrayList;
+
+import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
 
 public class PerfilResponse {
 

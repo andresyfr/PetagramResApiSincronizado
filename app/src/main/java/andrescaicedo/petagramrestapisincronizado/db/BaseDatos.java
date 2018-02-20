@@ -6,9 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-
 import java.util.ArrayList;
+
+import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
 
 public class BaseDatos extends SQLiteOpenHelper {
 

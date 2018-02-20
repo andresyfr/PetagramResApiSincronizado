@@ -7,12 +7,13 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
-import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-import andrescaicedo.petagramrestapisincronizado.restApi.JsonKeys;
-import andrescaicedo.petagramrestapisincronizado.restApi.model.TimelineResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+
+import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
+import andrescaicedo.petagramrestapisincronizado.restApi.JsonKeys;
+import andrescaicedo.petagramrestapisincronizado.restApi.model.TimelineResponse;
 
 public class TimelineDeserializador implements JsonDeserializer<TimelineResponse> {
     @Override
@@ -38,6 +39,7 @@ public class TimelineDeserializador implements JsonDeserializer<TimelineResponse
             JsonObject recentMediaDataObject = arregloJson.get(i).getAsJsonObject();
 
             //Obteniendo los Datos de la Imagen Reciente
+            String id                   = recentMediaDataObject.get(JsonKeys.ID).getAsString();
             JsonObject imageJson        = recentMediaDataObject.getAsJsonObject(JsonKeys.MEDIA_IMAGES);
             JsonObject imagenStdJson    = imageJson.getAsJsonObject(JsonKeys.MEDIA_STANDARD_RESOLUTION);
             String urlFoto              = imagenStdJson.get(JsonKeys.MEDIA_URL).getAsString();
@@ -53,6 +55,7 @@ public class TimelineDeserializador implements JsonDeserializer<TimelineResponse
 
             //Llenando Datos
             Mascota recentMediaActual = new Mascota();
+            recentMediaActual.setId(id);
             recentMediaActual.setNombre(usuario);
             recentMediaActual.setUrlFoto(urlFoto);
             recentMediaActual.setLikes(likes);

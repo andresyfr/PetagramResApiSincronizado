@@ -1,9 +1,9 @@
 package andrescaicedo.petagramrestapisincronizado;
 
-import com.google.firebase.iid.FirebaseInstanceIdService;
 import android.util.Log;
 
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.FirebaseInstanceIdService;
 
 /**
  * Created by ANDRES on 04/11/2017.

@@ -7,11 +7,12 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+
+import java.lang.reflect.Type;
+
 import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
 import andrescaicedo.petagramrestapisincronizado.restApi.JsonKeys;
 import andrescaicedo.petagramrestapisincronizado.restApi.model.SearchResponse;
-
-import java.lang.reflect.Type;
 
 public class SearchDeserializador implements JsonDeserializer{
     @Override

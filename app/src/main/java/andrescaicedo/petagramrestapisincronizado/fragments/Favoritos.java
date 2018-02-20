@@ -9,7 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import andrescaicedo.petagramrestapisincronizado.AcercaDe;
 import andrescaicedo.petagramrestapisincronizado.ConfiguracionCuenta;
@@ -17,16 +18,17 @@ import andrescaicedo.petagramrestapisincronizado.ContactoForEmail;
 import andrescaicedo.petagramrestapisincronizado.R;
 import andrescaicedo.petagramrestapisincronizado.adaptadores.MascotaAdaptador;
 import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-import andrescaicedo.petagramrestapisincronizado.presentador.FavoritosPresenter;
 import andrescaicedo.petagramrestapisincronizado.presentador.IFavoritosPresenter;
-
-import java.util.ArrayList;
 
 public class Favoritos extends AppCompatActivity implements IFavoritos{
 
     ArrayList<Mascota> mascotas;
     private RecyclerView listaMascotas;
     private IFavoritosPresenter presenter;
+
+    public Favoritos(){
+        // Required empty public constructor
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

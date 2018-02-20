@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context="andrescaicedo.petagramrestapisincronizado.AcercaDe"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:context="andrescaicedo.petagramrestapisincronizado.AcercaDe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
     <include android:id="@+id/miActionBar"
         layout="@layout/layout_action_bar"> </include>

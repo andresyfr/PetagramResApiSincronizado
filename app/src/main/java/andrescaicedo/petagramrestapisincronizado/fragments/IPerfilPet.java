@@ -1,10 +1,10 @@
 package andrescaicedo.petagramrestapisincronizado.fragments;
 
+import java.util.ArrayList;
+
 import andrescaicedo.petagramrestapisincronizado.adaptadores.FotosPerfilAdaptador;
 import andrescaicedo.petagramrestapisincronizado.pojo.Followers;
 import andrescaicedo.petagramrestapisincronizado.pojo.Mascota;
-
-import java.util.ArrayList;
 
 public interface IPerfilPet {
 
